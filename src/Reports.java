@@ -43,9 +43,19 @@ public class Reports extends javax.swing.JPanel {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/outstanding.png"))); // NOI18N
         jButton2.setContentAreaFilled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dayli rentals.png"))); // NOI18N
         jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -87,6 +97,32 @@ public class Reports extends javax.swing.JPanel {
         this.repaint();
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        Outstanding p = new Outstanding(); 
+        p.setVisible(true);
+        p.setSize(this.getWidth(), this.getHeight());
+
+        this.removeAll();
+        this.add(p);
+        this.revalidate();
+        this.repaint();
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       
+        DayRentals p = new DayRentals(); 
+        p.setVisible(true);
+        p.setSize(this.getWidth(), this.getHeight());
+
+        this.removeAll();
+        this.add(p);
+        this.revalidate();
+        this.repaint();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

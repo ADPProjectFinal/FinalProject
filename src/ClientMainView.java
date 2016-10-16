@@ -71,8 +71,6 @@ public class ClientMainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
         addCustBtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -83,21 +81,8 @@ public class ClientMainView extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuMenu = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
-
-        jMenuItem10.setText("jMenuItem10");
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(740, 450));
@@ -130,6 +115,11 @@ public class ClientMainView extends javax.swing.JFrame {
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button2.png"))); // NOI18N
         jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button (1).png"))); // NOI18N
         jButton4.setContentAreaFilled(false);
@@ -171,75 +161,25 @@ public class ClientMainView extends javax.swing.JFrame {
             }
         });
 
-        jMenuMenu.setText("Store");
+        jMenuMenu.setText("File");
 
-        jMenu3.setText("Customers");
-
-        jMenuItem2.setText("Add/remove");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem8.setText("Menu");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItem8ActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem2);
+        jMenuMenu.add(jMenuItem8);
 
-        jMenuMenu.add(jMenu3);
-
-        jMenu4.setText("DVD");
-
-        jMenuItem3.setText("Add/Remove");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem9.setText("Exit");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuItem9ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem3);
-
-        jMenuItem1.setText("Rent");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem1);
-
-        jMenuItem4.setText("Return");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem4);
-
-        jMenuMenu.add(jMenu4);
-
-        jMenu2.setText("Reports");
-
-        jMenuItem5.setText("All Rentals");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem5);
-
-        jMenuItem6.setText("Outstanding Rentals");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem6);
-
-        jMenuItem7.setText("Daily Rentals");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem7);
-
-        jMenuMenu.add(jMenu2);
+        jMenuMenu.add(jMenuItem9);
 
         jMenuBar1.add(jMenuMenu);
 
@@ -313,98 +253,6 @@ public class ClientMainView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-       
-        AddRemoveDvd p = new AddRemoveDvd(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
-
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
-        
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        
-        AddRemoveCustomer p = new AddRemoveCustomer(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
-
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        
-        AllRentals p = new AllRentals(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
-
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
-        
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        
-         Outstanding p = new Outstanding(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
-
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
-        
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        
-        RentDvdPanel p = new RentDvdPanel(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
-
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
-        
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        
-        ReturnDvd p = new ReturnDvd(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
-
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
-        
-        
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        
-        DayRentals p = new DayRentals(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
-
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
-        
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuMenuActionPerformed(java.awt.event.ActionEvent evt) {                                           
         
@@ -491,6 +339,33 @@ public class ClientMainView extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        RentDvdPanel p = new RentDvdPanel(); 
+        p.setVisible(true);
+        p.setSize(this.getWidth(), this.getHeight());
+
+        this.getContentPane().removeAll();
+        this.add(p);
+        this.revalidate();
+        this.repaint();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+
+        ClientMainView pa = new ClientMainView();
+        this .dispose();
+        pa.show();
+
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        
+        System.exit(0);
+        
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
    
     public static void main(String args[]) {
        
@@ -554,20 +429,10 @@ public class ClientMainView extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenu jMenuMenu;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     // End of variables declaration//GEN-END:variables
     private static ArrayList<Customer> customerList; 
     private static ArrayList<DVD> dvdList; 
