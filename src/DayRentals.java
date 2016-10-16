@@ -50,6 +50,7 @@ public class DayRentals extends javax.swing.JPanel {
         dailyRentals = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 102, 102));
         setMinimumSize(new java.awt.Dimension(740, 450));
         setPreferredSize(new java.awt.Dimension(740, 450));
 
@@ -61,6 +62,7 @@ public class DayRentals extends javax.swing.JPanel {
 
         jLabel1.setText("Select date:");
 
+        dailyRentals.setBackground(new java.awt.Color(255, 255, 51));
         dailyRentals.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -86,7 +88,8 @@ public class DayRentals extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(dailyRentals);
 
-        jButton1.setText("Save Report");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/save report.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -107,10 +110,10 @@ public class DayRentals extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(178, 178, 178)
+                                .addGap(150, 150, 150)
                                 .addComponent(jButton1))
                             .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 226, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,14 +122,11 @@ public class DayRentals extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jButton1)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

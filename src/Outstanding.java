@@ -44,9 +44,11 @@ public class Outstanding extends javax.swing.JPanel {
         outstandingTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 102, 102));
         setMinimumSize(new java.awt.Dimension(740, 450));
         setPreferredSize(new java.awt.Dimension(740, 450));
 
+        outstandingTable.setBackground(new java.awt.Color(255, 255, 51));
         outstandingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -72,7 +74,8 @@ public class Outstanding extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(outstandingTable);
 
-        jButton1.setText("Save Report");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/save report.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -90,16 +93,16 @@ public class Outstanding extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(311, 311, 311))
+                .addGap(252, 252, 252))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

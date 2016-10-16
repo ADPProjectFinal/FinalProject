@@ -32,8 +32,10 @@ public class RentDvdPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 102, 102));
         setMinimumSize(new java.awt.Dimension(740, 450));
 
+        DvdRentTable.setBackground(new java.awt.Color(255, 255, 51));
         DvdRentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -59,6 +61,7 @@ public class RentDvdPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(DvdRentTable);
 
+        CusRentTable.setBackground(new java.awt.Color(0, 255, 255));
         CusRentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -96,7 +99,8 @@ public class RentDvdPanel extends javax.swing.JPanel {
             }
         });
 
-        rent.setText("Rent");
+        rent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rent.png"))); // NOI18N
+        rent.setContentAreaFilled(false);
         rent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rentActionPerformed(evt);
@@ -120,14 +124,18 @@ public class RentDvdPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))
-                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rent)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rent))))
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,7 +156,7 @@ public class RentDvdPanel extends javax.swing.JPanel {
                 .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(rent, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117))
+                .addGap(132, 132, 132))
         );
     }// </editor-fold>//GEN-END:initComponents
 

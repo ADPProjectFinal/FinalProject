@@ -30,6 +30,7 @@ public class Reports extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 102, 102));
         setMinimumSize(new java.awt.Dimension(740, 450));
         setPreferredSize(new java.awt.Dimension(740, 450));
 
