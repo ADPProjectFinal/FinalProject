@@ -44,6 +44,9 @@ public class Outstanding extends javax.swing.JPanel {
         outstandingTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(740, 450));
+        setPreferredSize(new java.awt.Dimension(740, 450));
+
         outstandingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -81,23 +84,22 @@ public class Outstanding extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(379, 379, 379)
-                        .addComponent(jButton1)))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(311, 311, 311))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -107,7 +109,7 @@ public class Outstanding extends javax.swing.JPanel {
         Date d1 = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
         String date = dateFormat.format(d1); 
-        String fileName = "\\"+"(Outstanding)"+date+".txt"; 
+        String fileName = "\\"+"(Outstanding rentals for)"+date+".txt"; 
         
         
         JFileChooser chooser = new JFileChooser();
@@ -126,7 +128,7 @@ public class Outstanding extends javax.swing.JPanel {
         out.write(String.format("%-20s", "Rantal Number")+String.format("%-20s", "Date Rented")+String.format("%-20s", "Date Returned")
         +String.format("%-20s", "Customer Number")+String.format("%-20s", "DVD Number"));
         out.newLine();
-        out.write("--------------------------------------------------------------------------------------------------");
+        out.write("__________________________________________________________________________________________________");
         out.newLine();
         for(int i = 0; i<outstandingTable.getRowCount(); i++){
         out.newLine();

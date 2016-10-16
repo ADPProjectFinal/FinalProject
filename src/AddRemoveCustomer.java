@@ -10,17 +10,22 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class AddRemoveCustomer extends javax.swing.JPanel {
+public class AddRemoveCustomer extends javax.swing.JFrame {
 
    
     public AddRemoveCustomer() {
         initComponents();
         //populates tatble on startup 
         getTableContents(); 
+        
+     
        
         
     }
-
+public void addFrame(){
+    
+    this.setVisible(true);
+}
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

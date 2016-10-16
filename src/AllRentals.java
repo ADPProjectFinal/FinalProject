@@ -47,7 +47,6 @@ public class AllRentals extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         allRentals = new javax.swing.JTable();
-        select = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
         allRentals.setModel(new javax.swing.table.DefaultTableModel(
@@ -75,18 +74,6 @@ public class AllRentals extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(allRentals);
 
-        select.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Latest to oldest", "Oldest to latest"}));
-        select.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                selectItemStateChanged(evt);
-            }
-        });
-        select.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("Save Report");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,44 +86,25 @@ public class AllRentals extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(select, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(344, 344, 344))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(select, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void selectItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_selectItemStateChanged
-        
-        String message = this.select.getSelectedItem().toString(); 
-        if(message.equals("Latest to oldest")){
-            populateTable(); 
-        }else if(message.equals("Oldest to latest")){
-         populateTableOldest(); 
-        }
-        
-    }//GEN-LAST:event_selectItemStateChanged
-
-    private void selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_selectActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
@@ -144,7 +112,7 @@ public class AllRentals extends javax.swing.JPanel {
         Date d1 = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
         String date = dateFormat.format(d1); 
-        String fileName = "\\"+"(All Rentals)"+date+".txt"; 
+        String fileName = "\\"+"(All Rentals for)"+date+".txt"; 
         
         
         JFileChooser chooser = new JFileChooser();
@@ -163,7 +131,7 @@ public class AllRentals extends javax.swing.JPanel {
         out.write(String.format("%-20s", "Rantal Number")+String.format("%-20s", "Date Rented")+String.format("%-20s", "Date Returned")
         +String.format("%-20s", "Customer Number")+String.format("%-20s", "DVD Number"));
         out.newLine();
-        out.write("--------------------------------------------------------------------------------------------------");
+        out.write("__________________________________________________________________________________________________");
         out.newLine();
         for(int i = 0; i<allRentals.getRowCount(); i++){
         out.newLine();
@@ -196,7 +164,6 @@ public class AllRentals extends javax.swing.JPanel {
     private javax.swing.JTable allRentals;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> select;
     // End of variables declaration//GEN-END:variables
      private static DefaultTableModel model;
      private static Date date1, date2; 
@@ -236,32 +203,4 @@ public class AllRentals extends javax.swing.JPanel {
 
            }
 
-public void populateTableOldest(){
-
-    
-       ClientMainView view = new ClientMainView(); 
-       ArrayList<Rental> rentals = new ArrayList<Rental>(view.rentals(""));
-       
-      Collections.sort(rentals, new Comparator<Rental>(){
-        @Override        
-                public int compare(Rental t, Rental t1) {
-                  
-                    return t.getDateRented().compareTo(t1.getDateRented()); 
-                     
-                } 
-           
-       
-       });
-        
-        //populates the table from the arrayList
-        model = (DefaultTableModel) allRentals.getModel();
-        model.setRowCount(0);
-        for(int a = 0; a<rentals.size(); a++){
-        model.addRow(new Object[]{rentals.get(a).getRentalNumber(), rentals.get(a).getDateRented(), 
-        rentals.get(a).getDateReturned(), rentals.get(a).getCusNumber(), rentals.get(a).dvdNumber()});
-}
-
-                
-
-           }
 } 
