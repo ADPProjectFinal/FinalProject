@@ -89,6 +89,7 @@ public class ClientMainView extends javax.swing.JFrame {
         setBackground(new java.awt.Color(51, 153, 255));
         setForeground(new java.awt.Color(51, 153, 255));
         setMinimumSize(new java.awt.Dimension(740, 450));
+        setPreferredSize(new java.awt.Dimension(740, 450));
         addWindowStateListener(new java.awt.event.WindowStateListener() {
             public void windowStateChanged(java.awt.event.WindowEvent evt) {
                 formWindowStateChanged(evt);
@@ -332,11 +333,29 @@ public class ClientMainView extends javax.swing.JFrame {
     
     
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        //List all customers jMenuMenu
+       
+        ListAllCust paa = new ListAllCust(); 
+        paa.setVisible(true);
+        paa.setSize(this.getWidth(), this.getHeight());
+
+        this.getContentPane().removeAll();
+        this.add(paa);
+        this.revalidate();
+        this.repaint();
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // list all movies
+        
+        ListAllMovies paa = new ListAllMovies(); 
+        paa.setVisible(true);
+        paa.setSize(this.getWidth(), this.getHeight());
+
+        this.getContentPane().removeAll();
+        this.add(paa);
+        this.revalidate();
+        this.repaint();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

@@ -253,7 +253,7 @@ public class AddRemoveCustomer extends javax.swing.JPanel {
         model.setRowCount(0);
         for(int a = 0; a<list.size(); a++){
         model.addRow(new Object[]{list.get(a).getCustNumber(), list.get(a).getName(),list.get(a).getSurname(), 
-        list.get(a).getPhoneNum(),list.get(a).getCredit(), list.get(a).canRent()});
+        list.get(a).getPhoneNum()});
 }
     
     
