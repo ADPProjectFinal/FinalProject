@@ -3,8 +3,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -199,6 +203,8 @@ public class DVDMainFrame extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txfYearReleasedActionPerformed
 
+    
+    
     private void addNewDvdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewDvdActionPerformed
 
         ClientMainMenu clientDVD = new ClientMainMenu();
@@ -248,15 +254,39 @@ public class DVDMainFrame extends javax.swing.JPanel {
 
     private void txfSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfSearchKeyReleased
         
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
+       /* TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
       
        
         sorter.setRowFilter(RowFilter.regexFilter(txfSearch.getText(), 1));
         dvdTable.setRowSorter(sorter);
         
+        //<DefaultTableModel> sorter = new TableRowSorter<>(dvdTable.getModel());
+            dvdTable.setRowSorter(sorter);
+            List<RowSorter.SortKey> sortKeys = new ArrayList<>();
+
+            int columnIndexToSort = 1;
+            sortKeys.add(new RowSorter.SortKey(columnIndexToSort, SortOrder.ASCENDING));
+
+            sorter.setSortKeys(sortKeys);
+            sorter.sort();
+            
+       String query = txfSearch.getText().toLowerCase();
        
+            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+       
+            dvdTable.setRowSorter(tr);
+            
+            tr.setRowFilter(RowFilter.regexFilter(query));
+            */
+       
+       String query = txfSearch.getText().toLowerCase();
+       
+       findDvd(query);
     }//GEN-LAST:event_txfSearchKeyReleased
 
+    
+    
+    
     private void btnRemoveDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveDVDActionPerformed
       
         ClientMainMenu remDVD = new ClientMainMenu(); 
@@ -344,10 +374,16 @@ public class DVDMainFrame extends javax.swing.JPanel {
     
 }
  
+        public void findDvd(String query)
+        {
 
-       
-       
-       
- }
+            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+            dvdTable.setRowSorter(tr);
+            tr.setRowFilter(RowFilter.regexFilter(query));
 
+
+
+        }
+
+}
 

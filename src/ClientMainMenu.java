@@ -350,7 +350,17 @@ public class ClientMainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListMoviesActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // search all movies
+        
+         Search searchh = new Search(); 
+        searchh.setVisible(true);
+        searchh.setSize(this.getWidth(), this.getHeight());
+
+        getContentPane().removeAll();
+        add(searchh);
+        revalidate();
+        repaint();
+        
+        
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
