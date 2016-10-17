@@ -10,10 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class AddRemoveCustomer extends javax.swing.JPanel {
+public class CustomersMainFrame extends javax.swing.JPanel {
 
    
-    public AddRemoveCustomer() {
+    public CustomersMainFrame() {
         initComponents();
         //populates tatble when program is started
         getTableContents(); 

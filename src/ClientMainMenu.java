@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 
-public class ClientMainView extends javax.swing.JFrame {
+public class ClientMainMenu extends javax.swing.JFrame {
     
     private static ObjectOutputStream out; 
     private static ObjectInputStream in; 
     private static Socket socket;   
     
-    public ClientMainView() {
+    public ClientMainMenu() {
        
         initComponents();
         
@@ -71,84 +71,83 @@ public class ClientMainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnAddDVD = new javax.swing.JButton();
+        btnRentDVD = new javax.swing.JButton();
+        btnReturnDVD = new javax.swing.JButton();
+        btnListMovies = new javax.swing.JButton();
+        btnListCustomers = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
+        btnReports = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         addCustBtn = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenuMenu = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        menu = new javax.swing.JMenu();
+        menuMenu = new javax.swing.JMenuItem();
+        menuExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
         setForeground(new java.awt.Color(51, 153, 255));
         setMinimumSize(null);
-        setPreferredSize(new java.awt.Dimension(740, 500));
         addWindowStateListener(new java.awt.event.WindowStateListener() {
             public void windowStateChanged(java.awt.event.WindowEvent evt) {
                 formWindowStateChanged(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button add dvd.png"))); // NOI18N
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAddDVD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button add dvd.png"))); // NOI18N
+        btnAddDVD.setContentAreaFilled(false);
+        btnAddDVD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAddDVDActionPerformed(evt);
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button2.png"))); // NOI18N
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnRentDVD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button2.png"))); // NOI18N
+        btnRentDVD.setContentAreaFilled(false);
+        btnRentDVD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnRentDVDActionPerformed(evt);
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button (1).png"))); // NOI18N
-        jButton4.setContentAreaFilled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnReturnDVD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button (1).png"))); // NOI18N
+        btnReturnDVD.setContentAreaFilled(false);
+        btnReturnDVD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnReturnDVDActionPerformed(evt);
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button all movies.png"))); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnListMovies.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button all movies.png"))); // NOI18N
+        btnListMovies.setContentAreaFilled(false);
+        btnListMovies.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnListMoviesActionPerformed(evt);
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button (1) all cust.png"))); // NOI18N
-        jButton5.setContentAreaFilled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnListCustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button (1) all cust.png"))); // NOI18N
+        btnListCustomers.setContentAreaFilled(false);
+        btnListCustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnListCustomersActionPerformed(evt);
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
-        jButton6.setContentAreaFilled(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
+        btnSearch.setContentAreaFilled(false);
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button reports.png"))); // NOI18N
-        jButton7.setContentAreaFilled(false);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button reports.png"))); // NOI18N
+        btnReports.setContentAreaFilled(false);
+        btnReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnReportsActionPerformed(evt);
             }
         });
 
@@ -182,27 +181,27 @@ public class ClientMainView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenuMenu.setText("File");
+        menu.setText("File");
 
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem8.setText("Menu");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        menuMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        menuMenu.setText("Menu");
+        menuMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                menuMenuActionPerformed(evt);
             }
         });
-        jMenuMenu.add(jMenuItem8);
+        menu.add(menuMenu);
 
-        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem9.setText("Exit");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        menuExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        menuExit.setText("Exit");
+        menuExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                menuExitActionPerformed(evt);
             }
         });
-        jMenuMenu.add(jMenuItem9);
+        menu.add(menuExit);
 
-        jMenuBar1.add(jMenuMenu);
+        jMenuBar1.add(menu);
 
         setJMenuBar(jMenuBar1);
 
@@ -214,27 +213,26 @@ public class ClientMainView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(btnListCustomers, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addComponent(jButton1)))
+                        .addComponent(btnListMovies)))
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(197, 197, 197)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))
+                            .addComponent(btnAddDVD)
+                            .addComponent(btnRentDVD))
                         .addGap(0, 80, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)
+                        .addComponent(btnReturnDVD)
                         .addGap(73, 73, 73))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(295, 295, 295)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7))
+                    .addComponent(btnSearch)
+                    .addComponent(btnReports))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -244,20 +242,20 @@ public class ClientMainView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5)
+                        .addComponent(btnListCustomers)
                         .addGap(36, 36, 36)
-                        .addComponent(jButton1)
+                        .addComponent(btnListMovies)
                         .addGap(19, 19, 19)
-                        .addComponent(jButton7))
+                        .addComponent(btnReports))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jButton2)
+                        .addComponent(btnAddDVD)
                         .addGap(30, 30, 30)
-                        .addComponent(jButton3)
+                        .addComponent(btnRentDVD)
                         .addGap(20, 20, 20)
-                        .addComponent(jButton4)))
+                        .addComponent(btnReturnDVD)))
                 .addGap(18, 18, 18)
-                .addComponent(jButton6)
+                .addComponent(btnSearch)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -266,14 +264,14 @@ public class ClientMainView extends javax.swing.JFrame {
 
     private void jMenuMenuActionPerformed(java.awt.event.ActionEvent evt) {                                           
         
-        ClientMainView x = new ClientMainView(); 
-        x.setVisible(true);
-        x.setSize(this.getWidth(), this.getHeight());
+        ClientMainMenu mainMenuC = new ClientMainMenu(); 
+        mainMenuC.setVisible(true);
+        mainMenuC.setSize(this.getWidth(), this.getHeight());
 
-        this.getContentPane().removeAll();
-        this.add(x);
-        this.revalidate();
-        this.repaint();
+        getContentPane().removeAll();
+        add(mainMenuC);
+        revalidate();
+        repaint();
         
     }
     
@@ -286,113 +284,113 @@ public class ClientMainView extends javax.swing.JFrame {
     private void addCustBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustBtnActionPerformed
    
          
-        AddRemoveCustomer p = new AddRemoveCustomer(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
+        CustomersMainFrame addRemCust = new CustomersMainFrame(); 
+        addRemCust.setVisible(true);
+        addRemCust.setSize(this.getWidth(), this.getHeight());
 
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
+        getContentPane().removeAll();
+        add(addRemCust);
+        revalidate();
+        repaint();
   
     }//GEN-LAST:event_addCustBtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAddDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDVDActionPerformed
         
-        AddRemoveDvd p = new AddRemoveDvd(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
+        DVDMainFrame addRemDVD = new DVDMainFrame(); 
+        addRemDVD.setVisible(true);
+        addRemDVD.setSize(this.getWidth(), this.getHeight());
 
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
+        getContentPane().removeAll();
+        add(addRemDVD);
+        revalidate();
+        repaint();
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAddDVDActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnReturnDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnDVDActionPerformed
         
-        ReturnDvd p = new ReturnDvd(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
+        ReturnDvd returnDVD = new ReturnDvd(); 
+        returnDVD.setVisible(true);
+        returnDVD.setSize(this.getWidth(), this.getHeight());
 
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
+        getContentPane().removeAll();
+        add(returnDVD);
+        revalidate();
+        repaint();
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnReturnDVDActionPerformed
 
     
     
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnListCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListCustomersActionPerformed
        
-        ListAllCust paa = new ListAllCust(); 
-        paa.setVisible(true);
-        paa.setSize(this.getWidth(), this.getHeight());
+        CustomerListFrame listCust = new CustomerListFrame(); 
+        listCust.setVisible(true);
+        listCust.setSize(this.getWidth(), this.getHeight());
 
-        this.getContentPane().removeAll();
-        this.add(paa);
-        this.revalidate();
-        this.repaint();
+        getContentPane().removeAll();
+        add(listCust);
+        revalidate();
+        repaint();
         
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnListCustomersActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnListMoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListMoviesActionPerformed
         
-        ListAllMovies paa = new ListAllMovies(); 
-        paa.setVisible(true);
-        paa.setSize(this.getWidth(), this.getHeight());
+        MoviesListFrame listMovies = new MoviesListFrame(); 
+        listMovies.setVisible(true);
+        listMovies.setSize(this.getWidth(), this.getHeight());
 
-        this.getContentPane().removeAll();
-        this.add(paa);
-        this.revalidate();
-        this.repaint();
+        getContentPane().removeAll();
+        add(listMovies);
+        revalidate();
+        repaint();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnListMoviesActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // search all movies
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         
-        Reports paa = new Reports(); 
-        paa.setVisible(true);
-        paa.setSize(this.getWidth(), this.getHeight());
+        Reports reports = new Reports(); 
+        reports.setVisible(true);
+        reports.setSize(this.getWidth(), this.getHeight());
 
-        this.getContentPane().removeAll();
-        this.add(paa);
-        this.revalidate();
-        this.repaint();
-    }//GEN-LAST:event_jButton7ActionPerformed
+        getContentPane().removeAll();
+        add(reports);
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_btnReportsActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnRentDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentDVDActionPerformed
         
-        RentDvdPanel p = new RentDvdPanel(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
+        DVDRentFrame rentDVD = new DVDRentFrame(); 
+        rentDVD.setVisible(true);
+        rentDVD.setSize(this.getWidth(), this.getHeight());
 
-        this.getContentPane().removeAll();
-        this.add(p);
-        this.revalidate();
-        this.repaint();
+        getContentPane().removeAll();
+        add(rentDVD);
+        revalidate();
+        repaint();
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnRentDVDActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void menuMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMenuActionPerformed
 
-        ClientMainView pa = new ClientMainView();
-        this .dispose();
-        pa.show();
+        ClientMainMenu clientMenu = new ClientMainMenu();
+        this.dispose();
+        clientMenu.show();
 
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_menuMenuActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExitActionPerformed
         
         System.exit(0);
         
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_menuExitActionPerformed
 
    
     public static void main(String args[]) {
@@ -406,13 +404,13 @@ public class ClientMainView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClientMainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClientMainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClientMainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClientMainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
@@ -439,7 +437,7 @@ public class ClientMainView extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClientMainView().setVisible(true);
+                new ClientMainMenu().setVisible(true);
             }
         });
         
@@ -450,18 +448,18 @@ public class ClientMainView extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCustBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton btnAddDVD;
+    private javax.swing.JButton btnListCustomers;
+    private javax.swing.JButton btnListMovies;
+    private javax.swing.JButton btnRentDVD;
+    private javax.swing.JButton btnReports;
+    private javax.swing.JButton btnReturnDVD;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JMenu jMenuMenu;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu menu;
+    private javax.swing.JMenuItem menuExit;
+    private javax.swing.JMenuItem menuMenu;
     // End of variables declaration//GEN-END:variables
     private static ArrayList<Customer> customerList; 
     private static ArrayList<DVD> dvdList; 

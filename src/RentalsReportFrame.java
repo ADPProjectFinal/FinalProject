@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -29,10 +28,10 @@ import org.jdatepicker.impl.UtilDateModel;
  *
  * @author stean
  */
-public class DayRentals extends javax.swing.JPanel {
+public class RentalsReportFrame extends javax.swing.JPanel {
 
    
-    public DayRentals() {
+    public RentalsReportFrame() {
         initComponents();
         
         
@@ -44,26 +43,26 @@ public class DayRentals extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        date = new org.jdesktop.swingx.JXDatePicker();
+        selectDate = new org.jdesktop.swingx.JXDatePicker();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        dailyRentals = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        tblDailyRentals = new javax.swing.JTable();
+        btnSaveReport = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 102, 102));
         setMinimumSize(new java.awt.Dimension(740, 450));
         setPreferredSize(new java.awt.Dimension(740, 450));
 
-        date.addActionListener(new java.awt.event.ActionListener() {
+        selectDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateActionPerformed(evt);
+                selectDateActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Select date:");
 
-        dailyRentals.setBackground(new java.awt.Color(255, 255, 51));
-        dailyRentals.setModel(new javax.swing.table.DefaultTableModel(
+        tblDailyRentals.setBackground(new java.awt.Color(255, 255, 51));
+        tblDailyRentals.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -86,13 +85,13 @@ public class DayRentals extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(dailyRentals);
+        jScrollPane1.setViewportView(tblDailyRentals);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/save report.png"))); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSaveReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/save report.png"))); // NOI18N
+        btnSaveReport.setContentAreaFilled(false);
+        btnSaveReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSaveReportActionPerformed(evt);
             }
         });
 
@@ -105,10 +104,10 @@ public class DayRentals extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(selectDate, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGap(139, 139, 139)
-                        .addComponent(jButton1))
+                        .addComponent(btnSaveReport))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -124,105 +123,106 @@ public class DayRentals extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1))
+                        .addComponent(selectDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSaveReport))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateActionPerformed
+    private void selectDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDateActionPerformed
        
         
-       ClientMainView view = new ClientMainView();
+       ClientMainMenu cView = new ClientMainMenu();
        
-       Date d = date.getDate(); 
-       DateFormat f = new SimpleDateFormat("yyyy/MM/dd");
-       String dd = f.format(d); 
+       Date date = selectDate.getDate();
+       
+       DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+       String dd = dateFormat.format(date); 
        populateTable(dd);
         
-    }//GEN-LAST:event_dateActionPerformed
+    }//GEN-LAST:event_selectDateActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSaveReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveReportActionPerformed
        
-          String path; 
-        Date d1 = new Date();
+        String filePath; 
+        Date date1 = new Date();
+        
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
-        String date = dateFormat.format(d1); 
-        String fileName = "\\"+"(Day rentals for )"+date+".txt"; 
+        String date = dateFormat.format(date1); 
+        String fileName = "\\" + "(Daily rentals for: )" + date + ".txt"; 
         
         
-        JFileChooser chooser = new JFileChooser();
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        chooser.showSaveDialog(this); 
+        JFileChooser fChooser = new JFileChooser();
+        fChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fChooser.showSaveDialog(this); 
         
-        try{
+        try
+        {    
+            filePath = fChooser.getSelectedFile().getCanonicalPath(); 
+
+
+            FileWriter fw = new FileWriter(filePath + fileName); 
+            bw = new BufferedWriter(fw); 
             
+            bw.write(String.format("%-20s", "Rantal Number") + String.format("%-20s", "Date Rented") + String.format("%-20s", "Date Returned") + String.format("%-20s", "Customer Number") + String.format("%-20s", "DVD Number"));
+            bw.newLine();
             
+            bw.write("-------------------------------------------------------------------------------------");
+            bw.newLine();
             
-        path = chooser.getSelectedFile().getCanonicalPath(); 
-       
-       
-        FileWriter fw = new FileWriter(path+fileName); 
-        out = new BufferedWriter(fw); 
-        out.write(String.format("%-20s", "Rantal Number")+String.format("%-20s", "Date Rented")+String.format("%-20s", "Date Returned")
-        +String.format("%-20s", "Customer Number")+String.format("%-20s", "DVD Number"));
-        out.newLine();
-        out.write("__________________________________________________________________________________________________");
-        out.newLine();
-        for(int i = 0; i<dailyRentals.getRowCount(); i++){
-        out.newLine();
-        for(int j = 0; j<5; j++){
-        String jy = String.format("%-20s", dailyRentals.getValueAt(i, j).toString()); 
-        out.write(jy);
-        }    
-        
-        
+            for(int cnt = 0; cnt<tblDailyRentals.getRowCount(); cnt++)
+            {
+                bw.newLine();
+                for(int cnt1 = 0; cnt1<5; cnt1++)
+                {
+                    String rentalsData = String.format("%-20s", tblDailyRentals.getValueAt(cnt, cnt1).toString()); 
+                    bw.write(rentalsData);
+                }
+        }
+            
+        bw.close();
+        }
+        catch(IOException e)
+        {
+            JOptionPane.showMessageDialog(null, "IOException thrown");
+        }
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null, "NullPointerException thrown");
         }
         
-        
-        out.close();
-        }catch(IOException e){
-        }catch(NullPointerException e){
-        
-        }
-        
        
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSaveReportActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable dailyRentals;
-    private org.jdesktop.swingx.JXDatePicker date;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSaveReport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private org.jdesktop.swingx.JXDatePicker selectDate;
+    private javax.swing.JTable tblDailyRentals;
     // End of variables declaration//GEN-END:variables
      private static DefaultTableModel model;
-     private static BufferedWriter out = null;
-public void populateTable(String date){
+     private static BufferedWriter bw;
+public void populateTable(String date)
+{
 
            
     
-       ClientMainView view = new ClientMainView(); 
-       ArrayList<Rental> rentals = new ArrayList<Rental>(view.getDailyRentals(date));
+       ClientMainMenu clientView = new ClientMainMenu(); 
+       ArrayList<Rental> rentals = new ArrayList<Rental>(clientView.getDailyRentals(date));
        
-           
-           
-          
-         
-      
-      
-       //populates the table from the arrayList
-        model = (DefaultTableModel) dailyRentals.getModel();
+        //populates the table from the arrayList
+        model = (DefaultTableModel) tblDailyRentals.getModel();
         model.setRowCount(0);
-        for(int a = 0; a<rentals.size(); a++){
-        model.addRow(new Object[]{rentals.get(a).getRentalNumber(), rentals.get(a).getDateRented(), 
-        rentals.get(a).getDateReturned(), rentals.get(a).getCusNumber(), rentals.get(a).dvdNumber()});
-}
+        for(int a = 0; a<rentals.size(); a++)
+        {
+            model.addRow(new Object[]{rentals.get(a).getRentalNumber(), rentals.get(a).getDateRented(), rentals.get(a).getDateReturned(), rentals.get(a).getCusNumber(), rentals.get(a).dvdNumber()});
+        }
 
                 
 
-           }
+}
 }

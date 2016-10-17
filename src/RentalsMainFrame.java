@@ -26,12 +26,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author stean
  */
-public class AllRentals extends javax.swing.JPanel {
+public class RentalsMainFrame extends javax.swing.JPanel {
 
     /**
      * Creates new form Reports
      */
-    public AllRentals() {
+    public RentalsMainFrame() {
         initComponents();
         populateTable();
     }
@@ -111,56 +111,54 @@ public class AllRentals extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String filePath; 
         
-        String path; 
-        Date d1 = new Date();
+        Date date1 = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
-        String date = dateFormat.format(d1); 
-        String fileName = "\\"+"(All Rentals for)"+date+".txt"; 
+        
+        String date = dateFormat.format(date1); 
+        String fileName = "\\" + "(All Rentals for)" + date + ".txt"; 
         
         
-        JFileChooser chooser = new JFileChooser();
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        chooser.showSaveDialog(this); 
+        JFileChooser fChooser = new JFileChooser();
         
-        try{
+        fChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fChooser.showSaveDialog(this); 
+        
+        try
+        {
+            filePath = fChooser.getSelectedFile().getCanonicalPath(); 
+
+            FileWriter fw = new FileWriter(filePath + fileName);
             
+            bw = new BufferedWriter(fw);
             
+            bw.write(String.format("%-20s", "Rantal Number") + String.format("%-20s", "Date Rented") + String.format("%-20s", "Date Returned") + String.format("%-20s", "Customer Number") + String.format("%-20s", "Customer Name") + String.format("%-20s", "DVD Number"));
+            bw.newLine();
             
-        path = chooser.getSelectedFile().getCanonicalPath(); 
-       
-       
-        FileWriter fw = new FileWriter(path+fileName); 
-        out = new BufferedWriter(fw); 
-        out.write(String.format("%-20s", "Rantal Number")+String.format("%-20s", "Date Rented")+String.format("%-20s", "Date Returned")
-        +String.format("%-20s", "Customer Number")+String.format("%-20s", "Customer Name")+String.format("%-20s", "DVD Number"));
-        out.newLine();
-        out.write("__________________________________________________________________________________________________");
-        out.newLine();
-        for(int i = 0; i<allRentals.getRowCount(); i++){
-        out.newLine();
-        for(int j = 0; j<5; j++){
-        String jy = String.format("%-20s", allRentals.getValueAt(i, j).toString()); 
-        out.write(jy);
-        }    
-        
-        
+            bw.write("------------------------------------------------------------------");
+            
+            bw.newLine();
+            
+            for(int cnt = 0; cnt<allRentals.getRowCount(); cnt++)
+            {
+                bw.newLine();
+                for(int cnt1 = 0; cnt1<5; cnt1++)
+                {
+                    String rentalsData = String.format("%-20s", allRentals.getValueAt(cnt, cnt1).toString()); 
+                    bw.write(rentalsData);
+                }    
+            }
+            bw.close();
         }
-        
-        
-        out.close();
-        }catch(IOException e){
-        }catch(NullPointerException e){
-        
+        catch(IOException e)
+        {
+            JOptionPane.showMessageDialog(null, "IOException");
         }
-        
-       
-     
-        
-        
-        
-        
-        
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null, "NullPointerException");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -171,24 +169,21 @@ public class AllRentals extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
      private static DefaultTableModel model;
      private static Date date1, date2; 
-     private static DateFormat df = new SimpleDateFormat("yyyy/mm/dd");
-     private static BufferedWriter out = null; 
-     public void populateTable(){
-
-           
-    
-       ClientMainView view = new ClientMainView(); 
-       ArrayList<Rental> rentals = new ArrayList<Rental>(view.rentals(""));
+     private static DateFormat dateFormat = new SimpleDateFormat("yyyy/mm/dd"); 
+     private static BufferedWriter bw; 
+     public void populateTable()
+     {
+        ClientMainMenu view = new ClientMainMenu(); 
+        ArrayList<Rental> rentals = new ArrayList<Rental>(view.rentals(""));
        
-      Collections.sort(rentals, new Comparator<Rental>(){
+        Collections.sort(rentals, new Comparator<Rental>()
+        {
         @Override        
-                public int compare(Rental t, Rental t1) {
-                    
-                  return t1.getDateRented().compareTo(t.getDateRented());  
-                }
-           
-       
-       });
+                public int compare(Rental t, Rental t1) 
+                {  
+                    return t1.getDateRented().compareTo(t.getDateRented());  
+                } 
+        });
       
            
           
@@ -198,13 +193,13 @@ public class AllRentals extends javax.swing.JPanel {
        //populates the table from the arrayList
         model = (DefaultTableModel) allRentals.getModel();
         model.setRowCount(0);
-        for(int a = 0; a<rentals.size(); a++){
-        model.addRow(new Object[]{rentals.get(a).getRentalNumber(), rentals.get(a).getDateRented(), 
-        rentals.get(a).getDateReturned(), rentals.get(a).getCusNumber(), rentals.get(a).dvdNumber()});
-}
+        for(int a = 0; a<rentals.size(); a++)
+        {
+            model.addRow(new Object[]{rentals.get(a).getRentalNumber(), rentals.get(a).getDateRented(), rentals.get(a).getDateReturned(), rentals.get(a).getCusNumber(), rentals.get(a).dvdNumber()});
+        }
 
                 
 
-           }
+     }
 
 } 

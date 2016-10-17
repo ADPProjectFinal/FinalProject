@@ -10,10 +10,10 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 
-public class AddRemoveDvd extends javax.swing.JPanel {
+public class DVDMainFrame extends javax.swing.JPanel {
 
    
-    public AddRemoveDvd() {
+    public DVDMainFrame() {
         initComponents();
         //popluates the table on startup
         getTableContents();
@@ -27,15 +27,15 @@ public class AddRemoveDvd extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         dvdTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        title = new javax.swing.JTextField();
+        txfTitle = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        category = new javax.swing.JComboBox<>();
+        cbmCat = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
-        yearReleased = new javax.swing.JTextField();
+        txfYearReleased = new javax.swing.JTextField();
         addNewDvd = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        search = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        txfSearch = new javax.swing.JTextField();
+        btnRemoveDVD = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 102, 102));
         setMinimumSize(new java.awt.Dimension(740, 450));
@@ -70,20 +70,26 @@ public class AddRemoveDvd extends javax.swing.JPanel {
 
         jLabel1.setText("Title: ");
 
+        txfTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfTitleActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Category: ");
 
-        category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "horror", "Sci-fi", "Drama", "Romance", "Comedy", "Action", "Cartoon" }));
-        category.addActionListener(new java.awt.event.ActionListener() {
+        cbmCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "horror", "Sci-fi", "Drama", "Romance", "Comedy", "Action", "Cartoon" }));
+        cbmCat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                categoryActionPerformed(evt);
+                cbmCatActionPerformed(evt);
             }
         });
 
         jLabel2.setText("Year Released:");
 
-        yearReleased.addActionListener(new java.awt.event.ActionListener() {
+        txfYearReleased.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yearReleasedActionPerformed(evt);
+                txfYearReleasedActionPerformed(evt);
             }
         });
 
@@ -97,22 +103,22 @@ public class AddRemoveDvd extends javax.swing.JPanel {
 
         jLabel4.setText("Search:");
 
-        search.addActionListener(new java.awt.event.ActionListener() {
+        txfSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchActionPerformed(evt);
+                txfSearchActionPerformed(evt);
             }
         });
-        search.addKeyListener(new java.awt.event.KeyAdapter() {
+        txfSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                searchKeyReleased(evt);
+                txfSearchKeyReleased(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/removedvd.png"))); // NOI18N
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnRemoveDVD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/removedvd.png"))); // NOI18N
+        btnRemoveDVD.setContentAreaFilled(false);
+        btnRemoveDVD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnRemoveDVDActionPerformed(evt);
             }
         });
 
@@ -125,13 +131,13 @@ public class AddRemoveDvd extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(search, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                            .addComponent(txfSearch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbmCat, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
@@ -142,8 +148,8 @@ public class AddRemoveDvd extends javax.swing.JPanel {
                                             .addComponent(jLabel2))
                                         .addGap(49, 49, 49)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(yearReleased, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(txfTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txfYearReleased, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(145, 145, 145)
                                 .addComponent(addNewDvd, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -152,7 +158,7 @@ public class AddRemoveDvd extends javax.swing.JPanel {
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addComponent(jButton2)))
+                        .addComponent(btnRemoveDVD)))
                 .addContainerGap(149, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -165,142 +171,163 @@ public class AddRemoveDvd extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(56, 56, 56)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbmCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3))
                                 .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(yearReleased, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txfYearReleased, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel1)
-                                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txfTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(57, 57, 57)
                         .addComponent(addNewDvd, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(btnRemoveDVD)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void yearReleasedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearReleasedActionPerformed
+    private void txfYearReleasedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfYearReleasedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_yearReleasedActionPerformed
+    }//GEN-LAST:event_txfYearReleasedActionPerformed
 
     private void addNewDvdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewDvdActionPerformed
 
-        ClientMainView k = new ClientMainView();
+        ClientMainMenu clientDVD = new ClientMainMenu();
         
-        String title = this.title.getText();
-        String yearR = this.yearReleased.getText(); 
+        String dvdTitle = txfTitle.getText();
+        String yReleased = txfYearReleased.getText(); 
        
         
-        if (title.trim().length()==0 || yearR.trim().length()==0){
-        JOptionPane.showMessageDialog(null, "Please fill in all the fields");
-        }else{
+        if (dvdTitle.length()==0 || yReleased.length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields required!");
+        }
+        else
+        {
         
-        String category = this.category.getSelectedItem().toString(); 
-        int yearReleased = Integer.parseInt(yearR); 
-        String year;  
-        
-        int yearRel = Calendar.getInstance().get(Calendar.YEAR); 
-        if(yearReleased == yearRel){
-        year = "true"; 
-        }else{
-        year = "false"; 
+            String category = cbmCat.getSelectedItem().toString(); 
+            int yearReleased = Integer.parseInt(yReleased); 
+            String year = "";  
+
+            int yRel = Calendar.getInstance().get(Calendar.YEAR);
+            
+            if(yearReleased == yRel)
+            {
+                year = "true"; 
+            }
+        else
+        {
+            year = "false"; 
         }
         
-        k.addNewDvd(title, category, year);
+        clientDVD.addNewDvd(dvdTitle, category, year);
         
-        this.title.setText("");
-        this.yearReleased.setText("");
+        txfTitle.setText("");
+        txfYearReleased.setText("");
         getTableContents(); 
+        
         } 
         
         
        
     }//GEN-LAST:event_addNewDvdActionPerformed
 
-    private void categoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryActionPerformed
+    private void cbmCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmCatActionPerformed
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_categoryActionPerformed
+    }//GEN-LAST:event_cbmCatActionPerformed
 
-    private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
+    private void txfSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfSearchKeyReleased
         
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
       
        
-        sorter.setRowFilter(RowFilter.regexFilter(this.search.getText(), 1));
+        sorter.setRowFilter(RowFilter.regexFilter(txfSearch.getText(), 1));
         dvdTable.setRowSorter(sorter);
         
        
-    }//GEN-LAST:event_searchKeyReleased
+    }//GEN-LAST:event_txfSearchKeyReleased
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnRemoveDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveDVDActionPerformed
       
-       ClientMainView k = new ClientMainView(); 
+        ClientMainMenu remDVD = new ClientMainMenu(); 
       
         int row = dvdTable.getSelectedRow();
         
-        if(dvdTable.getRowSorter()!=null){
-        row = dvdTable.getRowSorter().convertRowIndexToModel(row); 
-        }else{
-        row = dvdTable.getSelectedRow();
+        if(dvdTable.getRowSorter() !=null)
+        {
+            row = dvdTable.getRowSorter().convertRowIndexToModel(row); 
+        }
+        else
+        {
+            row = dvdTable.getSelectedRow();
         }
         
-        if(row == -1){
-        JOptionPane.showMessageDialog(null, "Please select a DVD");
-        }else{
-                
-          int dvdNumber = (Integer)dvdTable.getModel().getValueAt(row, 0); 
-         
-          k.removeDvd(dvdNumber);
-          model.removeRow(row);
-          getTableContents(); 
-          }   
+        if(row == -1)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a DVD to remove first!");
+        }
+        else
+        {     
+            int dvdNumber = (Integer)dvdTable.getModel().getValueAt(row, 0); 
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+            remDVD.removeDvd(dvdNumber);
+            model.removeRow(row);
+            getTableContents(); 
+        }   
 
-    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+    }//GEN-LAST:event_btnRemoveDVDActionPerformed
+
+    private void txfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_searchActionPerformed
+    }//GEN-LAST:event_txfSearchActionPerformed
+
+    private void txfTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfTitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfTitleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addNewDvd;
-    private javax.swing.JComboBox<String> category;
+    private javax.swing.JButton btnRemoveDVD;
+    private javax.swing.JComboBox<String> cbmCat;
     private javax.swing.JTable dvdTable;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField search;
-    private javax.swing.JTextField title;
-    private javax.swing.JTextField yearReleased;
+    private javax.swing.JTextField txfSearch;
+    private javax.swing.JTextField txfTitle;
+    private javax.swing.JTextField txfYearReleased;
     // End of variables declaration//GEN-END:variables
     private static DefaultTableModel model;
-    private static ClientMainView view; 
+    private static ClientMainMenu cView; 
     private static DVD dvd; 
     
 
- public void getTableContents(){
+ public void getTableContents()
+ {
     
-       ClientMainView view = new ClientMainView(); 
-       ArrayList<DVD> dvdList = new ArrayList<DVD>(view.dvdTable());
+       ClientMainMenu cView = new ClientMainMenu(); 
+       ArrayList<DVD> dvdList = new ArrayList<DVD>(cView.dvdTable());
+       
        //sorts the ArrayList in alphabetical order
-       Collections.sort(dvdList, new Comparator<DVD>(){
+       Collections.sort(dvdList, new Comparator<DVD>()
+       {
          @Override
-           public int compare(DVD t, DVD t1) {
-               return t.getCategory().compareTo(t1.getCategory()); 
+           public int compare(DVD t1, DVD t2) 
+           {
+               return t1.getCategory().compareTo(t2.getCategory()); 
            }
            
        
@@ -309,9 +336,10 @@ public class AddRemoveDvd extends javax.swing.JPanel {
        //populates the table from the arrayList
         model = (DefaultTableModel) dvdTable.getModel();
         model.setRowCount(0);
-        for(int a = 0; a<dvdList.size(); a++){
-        model.addRow(new Object[]{dvdList.get(a).getDvdNumber(), dvdList.get(a).getTitle(), dvdList.get(a).getCategory()});
-}
+        for(int a = 0; a<dvdList.size(); a++)
+        {
+            model.addRow(new Object[]{dvdList.get(a).getDvdNumber(), dvdList.get(a).getTitle(), dvdList.get(a).getCategory()});
+        }
     
     
 }

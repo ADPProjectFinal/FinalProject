@@ -7,10 +7,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 
-public class RentDvdPanel extends javax.swing.JPanel {
+public class DVDRentFrame extends javax.swing.JPanel {
 
    
-    public RentDvdPanel() {
+    public DVDRentFrame() {
         initComponents();
         
         
@@ -26,7 +26,7 @@ public class RentDvdPanel extends javax.swing.JPanel {
         DvdRentTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         CusRentTable = new javax.swing.JTable();
-        category = new javax.swing.JComboBox<>();
+        category = new javax.swing.JComboBox<String>();
         rent = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -177,7 +177,7 @@ public class RentDvdPanel extends javax.swing.JPanel {
 
     private void rentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentActionPerformed
        
-        ClientMainView view = new ClientMainView();
+        ClientMainMenu view = new ClientMainMenu();
         
         int dvdRow = DvdRentTable.getSelectedRow();
         int cusRow = CusRentTable.getSelectedRow(); 
@@ -232,7 +232,7 @@ public class RentDvdPanel extends javax.swing.JPanel {
     
     
     public void populateTables(){
-        ClientMainView view = new ClientMainView(); 
+        ClientMainMenu view = new ClientMainMenu(); 
         
          //populate customer table
         customerList = new ArrayList<Customer>(view.customerTable()); 

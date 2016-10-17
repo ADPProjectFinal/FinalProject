@@ -14,15 +14,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author PJ
  */
-public class ListAllMovies extends javax.swing.JPanel {
+public class CustomerListFrame extends javax.swing.JPanel {
 
     /**
-     * Creates new form ListAllMovies
+     * Creates new form ListAllCust
      */
-    public ListAllMovies() {
+    public CustomerListFrame() {
         initComponents();
-        
         getTableContents();
+        
     }
 
     /**
@@ -35,78 +35,80 @@ public class ListAllMovies extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        listallmovies = new javax.swing.JTable();
+        listCustomers = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 102, 102));
         setMinimumSize(new java.awt.Dimension(740, 450));
 
-        listallmovies.setBackground(new java.awt.Color(255, 255, 51));
-        listallmovies.setModel(new javax.swing.table.DefaultTableModel(
+        listCustomers.setBackground(new java.awt.Color(255, 255, 51));
+        listCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "DVD Number", "DVD Title", "Category", "New Release", "Available"
+                "Customer Num", "Customer Name", "Customer Surname", "Customer Phone", "Credit", "Can Rent"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(listallmovies);
+        jScrollPane1.setViewportView(listCustomers);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private static DefaultTableModel model;
+    
     
 public void getTableContents(){
     
-       ClientMainView view = new ClientMainView(); 
-       ArrayList<DVD> dvdList = new ArrayList<DVD>(view.dvdTable());
+       ClientMainMenu clientListView = new ClientMainMenu(); 
+       
+       ArrayList<Customer> list = new ArrayList<Customer>(clientListView.customerTable());
        //sorts the ArrayList in alphabetical order
-       Collections.sort(dvdList, new Comparator<DVD>(){
-         @Override
-           public int compare(DVD t, DVD t1) {
-               return t.getCategory().compareTo(t1.getCategory()); 
+       Collections.sort(list, new Comparator<Customer>()
+       {
+           @Override
+           public int compare(Customer t, Customer t1) 
+           {
+               return t.getName().compareTo(t1.getName()); 
            }
-           
        
        });
        
+       
+       
        //populates the table from the arrayList
-        model = (DefaultTableModel) listallmovies.getModel();
+        model = (DefaultTableModel) listCustomers.getModel();
         model.setRowCount(0);
-        for(int a = 0; a<dvdList.size(); a++){
-        model.addRow(new Object[]{dvdList.get(a).getDvdNumber(), dvdList.get(a).getTitle(), dvdList.get(a).getCategory(), 
-        dvdList.get(a).isNewRelease(),dvdList.get(a).isAvailable()});
+        for(int a = 0; a<list.size(); a++)
+        {
+            model.addRow(new Object[]{list.get(a).getCustNumber(), list.get(a).getName(),list.get(a).getSurname(), list.get(a).getPhoneNum(),list.get(a).getCredit(), list.get(a).canRent()});
+        }
 }
-    
-    
-}
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable listallmovies;
+    private javax.swing.JTable listCustomers;
     // End of variables declaration//GEN-END:variables
 }

@@ -89,23 +89,27 @@ public class ReturnDvd extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-        ClientMainView view = new ClientMainView();
-        int rentalNumber = rentalTable.getSelectedRow(); 
+        ClientMainMenu cViewReturn = new ClientMainMenu();
+        int rentNum = rentalTable.getSelectedRow(); 
         
-        
-        if(rentalNumber == -1){
-        JOptionPane.showMessageDialog(null, "Please select a rental");
-        }else{
-        if(rentalTable.getRowSorter()!=null){
-        rentalNumber = rentalTable.getRowSorter().convertRowIndexToModel(rentalNumber); 
-        }else{
-        rentalNumber = rentalTable.getSelectedRow();
+        if(rentNum == -1)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a rental before you can return one!");
         }
-        String rentalNum = rentalTable.getModel().getValueAt(rentalNumber, 0).toString();
-        String cusNum = rentalTable.getModel().getValueAt(rentalNumber, 3).toString(); 
-        String dvdNum = rentalTable.getModel().getValueAt(rentalNumber, 4).toString(); 
-        view.returnRentl(rentalNum, cusNum, dvdNum);
-        
+        else
+        {
+            if(rentalTable.getRowSorter()!=null)
+            {
+                rentNum = rentalTable.getRowSorter().convertRowIndexToModel(rentNum); 
+            }
+            else
+            {
+                rentNum = rentalTable.getSelectedRow();
+            }
+            String rentalNum = rentalTable.getModel().getValueAt(rentNum, 0).toString();
+            String cusNum = rentalTable.getModel().getValueAt(rentNum, 3).toString(); 
+            String dvdNum = rentalTable.getModel().getValueAt(rentNum, 4).toString(); 
+            cViewReturn.returnRentl(rentalNum, cusNum, dvdNum); 
         }
         
         populateTable();
@@ -121,7 +125,7 @@ public class ReturnDvd extends javax.swing.JPanel {
     
 public void populateTable(){
 
-       ClientMainView view = new ClientMainView(); 
+       ClientMainMenu view = new ClientMainMenu(); 
        ArrayList<Rental> rentals = new ArrayList<Rental>(view.rentals("NA"));
       
       

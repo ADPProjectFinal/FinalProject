@@ -88,12 +88,12 @@ public class Reports extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        AllRentals p = new AllRentals(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
+        RentalsMainFrame rentals = new RentalsMainFrame(); 
+        rentals.setVisible(true);
+        rentals.setSize(this.getWidth(), this.getHeight());
 
         this.removeAll();
-        this.add(p);
+        this.add(rentals);
         this.revalidate();
         this.repaint();
         
@@ -101,12 +101,12 @@ public class Reports extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        
-        Outstanding p = new Outstanding(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
+        OutstandingReportFrame outReport = new OutstandingReportFrame(); 
+        outReport.setVisible(true);
+        outReport.setSize(this.getWidth(), this.getHeight());
 
         this.removeAll();
-        this.add(p);
+        this.add(outReport);
         this.revalidate();
         this.repaint();
         
@@ -114,12 +114,12 @@ public class Reports extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        
-        DayRentals p = new DayRentals(); 
-        p.setVisible(true);
-        p.setSize(this.getWidth(), this.getHeight());
+        RentalsReportFrame rentalReport = new RentalsReportFrame(); 
+        rentalReport.setVisible(true);
+        rentalReport.setSize(this.getWidth(), this.getHeight());
 
         this.removeAll();
-        this.add(p);
+        this.add(rentalReport);
         this.revalidate();
         this.repaint();
         

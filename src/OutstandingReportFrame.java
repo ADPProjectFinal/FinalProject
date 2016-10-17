@@ -21,12 +21,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author stean
  */
-public class Outstanding extends javax.swing.JPanel {
+public class OutstandingReportFrame extends javax.swing.JPanel {
 
     /**
      * Creates new form OutStanding
      */
-    public Outstanding() {
+    public OutstandingReportFrame() {
         initComponents();
         populateTable(); 
     }
@@ -42,7 +42,7 @@ public class Outstanding extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         outstandingTable = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnOutReport = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 102, 102));
         setMinimumSize(new java.awt.Dimension(740, 500));
@@ -74,11 +74,11 @@ public class Outstanding extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(outstandingTable);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/save report.png"))); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnOutReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/save report.png"))); // NOI18N
+        btnOutReport.setContentAreaFilled(false);
+        btnOutReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnOutReportActionPerformed(evt);
             }
         });
 
@@ -88,7 +88,7 @@ public class Outstanding extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnOutReport)
                 .addGap(252, 252, 252))
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
@@ -101,47 +101,46 @@ public class Outstanding extends javax.swing.JPanel {
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnOutReport)
                 .addContainerGap(131, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnOutReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutReportActionPerformed
       
-          String path; 
-        Date d1 = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
-        String date = dateFormat.format(d1); 
-        String fileName = "\\"+"(Outstanding rentals for)"+date+".txt"; 
+        String filePath; 
+        Date date1 = new Date();
+        SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss") ;
+        String date = dFormat.format(date1); 
+        String fileName = "\\" + "(Outstanding rentals for)" + date + ".txt"; 
         
         
-        JFileChooser chooser = new JFileChooser();
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        chooser.showSaveDialog(this); 
+        JFileChooser fChooser = new JFileChooser();
+        fChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fChooser.showSaveDialog(this); 
         
-        try{
+        try
+        {
+            filePath = fChooser.getSelectedFile().getCanonicalPath(); 
+
+
+            FileWriter fw = new FileWriter(filePath+fileName); 
+            out = new BufferedWriter(fw); 
+            out.write(String.format("%-20s", "Rantal Number") + String.format("%-20s", "Date Rented") + String.format("%-20s", "Date Returned") + String.format("%-20s", "Customer Number") + String.format("%-20s", "DVD Number"));
+            out.newLine();
             
+            out.write("-------------------------------------------------------------------------");
+            out.newLine();
             
-            
-        path = chooser.getSelectedFile().getCanonicalPath(); 
-       
-       
-        FileWriter fw = new FileWriter(path+fileName); 
-        out = new BufferedWriter(fw); 
-        out.write(String.format("%-20s", "Rantal Number")+String.format("%-20s", "Date Rented")+String.format("%-20s", "Date Returned")
-        +String.format("%-20s", "Customer Number")+String.format("%-20s", "DVD Number"));
-        out.newLine();
-        out.write("__________________________________________________________________________________________________");
-        out.newLine();
-        for(int i = 0; i<outstandingTable.getRowCount(); i++){
-        out.newLine();
-        for(int j = 0; j<5; j++){
-        String jy = String.format("%-20s", outstandingTable.getValueAt(i, j).toString()); 
-        out.write(jy);
-        }    
-        
-        
-        }
+            for(int cnt = 0; cnt<outstandingTable.getRowCount(); cnt++)
+            {
+                out.newLine();
+                for(int cnt1 = 0; cnt1<5; cnt1++)
+                {
+                    String outstandingData = String.format("%-20s", outstandingTable.getValueAt(cnt, cnt1).toString()); 
+                    out.write(outstandingData);
+                }    
+            }
         
         
         out.close();
@@ -152,11 +151,11 @@ public class Outstanding extends javax.swing.JPanel {
         
        
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnOutReportActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnOutReport;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable outstandingTable;
     // End of variables declaration//GEN-END:variables
@@ -166,7 +165,7 @@ public class Outstanding extends javax.swing.JPanel {
     private static BufferedWriter out = null;     
     public void populateTable(){
     
-     ClientMainView view = new ClientMainView(); 
+     ClientMainMenu view = new ClientMainMenu(); 
      ArrayList<Rental> rentals = new ArrayList<Rental>(view.rentals("NA"));
       
      Collections.sort(rentals, new Comparator<Rental>(){
