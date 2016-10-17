@@ -15,7 +15,7 @@ public class AddRemoveCustomer extends javax.swing.JPanel {
    
     public AddRemoveCustomer() {
         initComponents();
-        //populates tatble on startup 
+        //populates tatble when program is started
         getTableContents(); 
        
         
@@ -29,9 +29,9 @@ public class AddRemoveCustomer extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
-        surname = new javax.swing.JTextField();
-        phoneNumber = new javax.swing.JTextField();
+        txfName = new javax.swing.JTextField();
+        txfSurname = new javax.swing.JTextField();
+        txfPhone = new javax.swing.JTextField();
         addNewCustomer = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerTable = new javax.swing.JTable();
@@ -47,9 +47,15 @@ public class AddRemoveCustomer extends javax.swing.JPanel {
 
         jLabel3.setText("Phone Number");
 
-        name.addActionListener(new java.awt.event.ActionListener() {
+        txfName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
+                txfNameActionPerformed(evt);
+            }
+        });
+
+        txfSurname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfSurnameActionPerformed(evt);
             }
         });
 
@@ -115,9 +121,9 @@ public class AddRemoveCustomer extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(surname, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txfName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addComponent(addNewCustomer)))
@@ -137,14 +143,14 @@ public class AddRemoveCustomer extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel1)
-                                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(51, 51, 51)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(surname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txfSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2))
                                 .addGap(59, 59, 59)
                                 .addComponent(jLabel3))
-                            .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
                         .addComponent(addNewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -158,25 +164,29 @@ public class AddRemoveCustomer extends javax.swing.JPanel {
 
     private void addNewCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewCustomerActionPerformed
 
-        ClientMainView k = new ClientMainView(); 
+        ClientMainMenu clientM = new ClientMainMenu(); 
         
-        String cusname = this.name.getText(); 
-        String cussurname = this.surname.getText();
-        String cusphoneNumber = this.phoneNumber.getText();
-        if(cusname.trim().length()==0 || cussurname.trim().length()==0||cusphoneNumber.trim().length()==0){
-        JOptionPane.showMessageDialog(null, "Pleas fill in all the fields");
-        }else{
+        String custName = txfName.getText(); 
+        String custSurname = txfSurname.getText();
+        String custCell = txfPhone.getText();
         
-        String upperName = cusname.substring(0, 1).toUpperCase()+cusname.substring(1); 
-        String upperSurname = cussurname.substring(0, 1).toUpperCase()+cussurname.substring(1); 
+        if(custName.length()==0 || custSurname.length()==0 || custCell.length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "All field must be entered!");
+        }
+        else
+        {
         
-        
-        this.name.setText("");
-        this.surname.setText("");
-        this.phoneNumber.setText("");
-        
-        k.addNewCustomer(upperName, upperSurname, cusphoneNumber);
-        getTableContents(); 
+            String nameUpper = custName.substring(0, 1).toUpperCase() + custName.substring(1); 
+            String surnameUpper = custSurname.substring(0, 1).toUpperCase() + custSurname.substring(1); 
+
+
+            txfName.setText("");
+            txfSurname.setText("");
+            txfPhone.setText("");
+
+            clientM.addNewCustomer(nameUpper, surnameUpper, custCell);
+            getTableContents(); 
         }
        
         
@@ -187,35 +197,43 @@ public class AddRemoveCustomer extends javax.swing.JPanel {
     private void removeCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCustomerActionPerformed
 
         
-      ClientMainView k = new ClientMainView(); 
+      ClientMainMenu clientRemove = new ClientMainMenu(); 
       
         int row = customerTable.getSelectedRow();
         
-        if(customerTable.getRowSorter()!=null){
-        row = customerTable.getRowSorter().convertRowIndexToModel(row); 
-        }else{
-        row = customerTable.getSelectedRow();
+        if(customerTable.getRowSorter()!=null)
+        {
+            row = customerTable.getRowSorter().convertRowIndexToModel(row); 
+        }
+        else
+        {
+            row = customerTable.getSelectedRow();
         }
         
-        if(row == -1){
-        JOptionPane.showMessageDialog(null, "Please select a customer");
-        }else{
+        if(row == -1)
+        {
+            JOptionPane.showMessageDialog(null, "A customer needs to be selected!");
+        }
+        else
+        {
                 
-          int cusNumber = (Integer)customerTable.getModel().getValueAt(row, 0); 
-          k.removeCustomer(cusNumber);
+          int custID = (Integer) customerTable.getModel().getValueAt(row, 0); 
+          clientRemove.removeCustomer(custID);
           model.removeRow(row);
           getTableContents(); 
-          
-           
     }
          
 
        
     }//GEN-LAST:event_removeCustomerActionPerformed
 
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+    private void txfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
+    }//GEN-LAST:event_txfNameActionPerformed
+
+    private void txfSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfSurnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfSurnameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -225,30 +243,33 @@ public class AddRemoveCustomer extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField name;
-    private javax.swing.JTextField phoneNumber;
     private javax.swing.JButton removeCustomer;
-    private javax.swing.JTextField surname;
+    private javax.swing.JTextField txfName;
+    private javax.swing.JTextField txfPhone;
+    private javax.swing.JTextField txfSurname;
     // End of variables declaration//GEN-END:variables
     private static DefaultTableModel model;
-    private static ClientMainView view; 
+    private static ClientMainMenu clientView; 
     private static Customer customer; 
    
     
     public void getTableContents(){
     
-       ClientMainView view = new ClientMainView(); 
-       ArrayList<Customer> list = new ArrayList<Customer>(view.customerTable());
-       //sorts the ArrayList in alphabetical order
-       Collections.sort(list, new Comparator<Customer>(){
+       ClientMainMenu viewC = new ClientMainMenu(); 
+       ArrayList<Customer> list = new ArrayList<Customer>(viewC.customerTable());
+       
+        //sorts the ArrayList in alphabetical order
+       Collections.sort(list, new Comparator<Customer>()
+       {
            @Override
-           public int compare(Customer t, Customer t1) {
+           public int compare(Customer t, Customer t1) 
+           {
                return t.getName().compareTo(t1.getName()); 
            }
        
        });
        
-       //populates the table from the arrayList
+       //populates arrayList from table
         model = (DefaultTableModel) customerTable.getModel();
         model.setRowCount(0);
         for(int a = 0; a<list.size(); a++){

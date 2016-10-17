@@ -39,9 +39,9 @@
                       </Group>
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="name" min="-2" pref="172" max="-2" attributes="0"/>
-                          <Component id="surname" min="-2" pref="172" max="-2" attributes="0"/>
-                          <Component id="phoneNumber" min="-2" pref="172" max="-2" attributes="0"/>
+                          <Component id="txfName" min="-2" pref="172" max="-2" attributes="0"/>
+                          <Component id="txfSurname" min="-2" pref="172" max="-2" attributes="0"/>
+                          <Component id="txfPhone" min="-2" pref="172" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -68,17 +68,17 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="name" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txfName" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="surname" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txfSurname" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="phoneNumber" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfPhone" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="addNewCustomer" min="-2" pref="44" max="-2" attributes="0"/>
@@ -111,14 +111,17 @@
         <Property name="text" type="java.lang.String" value="Phone Number"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="name">
+    <Component class="javax.swing.JTextField" name="txfName">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txfNameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="surname">
+    <Component class="javax.swing.JTextField" name="txfSurname">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txfSurnameActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="phoneNumber">
+    <Component class="javax.swing.JTextField" name="txfPhone">
     </Component>
     <Component class="javax.swing.JButton" name="addNewCustomer">
       <Properties>
