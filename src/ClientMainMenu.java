@@ -71,15 +71,19 @@ public class ClientMainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel6 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         btnAddDVD = new javax.swing.JButton();
-        btnRentDVD = new javax.swing.JButton();
         btnReturnDVD = new javax.swing.JButton();
+        btnRentDVD = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         btnListMovies = new javax.swing.JButton();
-        btnListCustomers = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
-        btnReports = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         addCustBtn = new javax.swing.JButton();
+        btnListCustomers = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        btnReports = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu = new javax.swing.JMenu();
         menuMenu = new javax.swing.JMenuItem();
@@ -88,26 +92,26 @@ public class ClientMainMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
         setForeground(new java.awt.Color(51, 153, 255));
-        setMinimumSize(null);
+        setMinimumSize(new java.awt.Dimension(740, 450));
+        setPreferredSize(new java.awt.Dimension(740, 450));
         addWindowStateListener(new java.awt.event.WindowStateListener() {
             public void windowStateChanged(java.awt.event.WindowEvent evt) {
                 formWindowStateChanged(evt);
             }
         });
 
+        jPanel6.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel6.setMinimumSize(new java.awt.Dimension(740, 450));
+        jPanel6.setPreferredSize(new java.awt.Dimension(740, 450));
+
+        jPanel4.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DVD", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
         btnAddDVD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button add dvd.png"))); // NOI18N
         btnAddDVD.setContentAreaFilled(false);
         btnAddDVD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddDVDActionPerformed(evt);
-            }
-        });
-
-        btnRentDVD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button2.png"))); // NOI18N
-        btnRentDVD.setContentAreaFilled(false);
-        btnRentDVD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRentDVDActionPerformed(evt);
             }
         });
 
@@ -119,19 +123,48 @@ public class ClientMainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnRentDVD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button2.png"))); // NOI18N
+        btnRentDVD.setContentAreaFilled(false);
+        btnRentDVD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRentDVDActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(btnRentDVD))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(btnReturnDVD))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(btnAddDVD))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnRentDVD)
+                .addGap(32, 32, 32)
+                .addComponent(btnReturnDVD)
+                .addGap(33, 33, 33)
+                .addComponent(btnAddDVD)
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Movies", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
         btnListMovies.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button all movies.png"))); // NOI18N
         btnListMovies.setContentAreaFilled(false);
         btnListMovies.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListMoviesActionPerformed(evt);
-            }
-        });
-
-        btnListCustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button (1) all cust.png"))); // NOI18N
-        btnListCustomers.setContentAreaFilled(false);
-        btnListCustomers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListCustomersActionPerformed(evt);
             }
         });
 
@@ -143,13 +176,31 @@ public class ClientMainMenu extends javax.swing.JFrame {
             }
         });
 
-        btnReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button reports.png"))); // NOI18N
-        btnReports.setContentAreaFilled(false);
-        btnReports.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReportsActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnListMovies)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSearch)
+                .addGap(32, 32, 32))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnListMovies)
+                .addGap(41, 41, 41)
+                .addComponent(btnSearch)
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Customer", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
         addCustBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button.png"))); // NOI18N
         addCustBtn.setToolTipText("");
@@ -164,20 +215,97 @@ public class ClientMainMenu extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
+        btnListCustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button (1) all cust.png"))); // NOI18N
+        btnListCustomers.setContentAreaFilled(false);
+        btnListCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListCustomersActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnListCustomers))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(addCustBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addComponent(addCustBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnListCustomers)
+                .addContainerGap(109, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Admin", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
+        btnReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button reports.png"))); // NOI18N
+        btnReports.setContentAreaFilled(false);
+        btnReports.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportsActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnReports)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(btnReports)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(11, 11, 11)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(addCustBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 25, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -209,54 +337,11 @@ public class ClientMainMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnListCustomers, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(btnListMovies)))
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAddDVD)
-                            .addComponent(btnRentDVD))
-                        .addGap(0, 80, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnReturnDVD)
-                        .addGap(73, 73, 73))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(295, 295, 295)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSearch)
-                    .addComponent(btnReports))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnListCustomers)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnListMovies)
-                        .addGap(19, 19, 19)
-                        .addComponent(btnReports))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(btnAddDVD)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnRentDVD)
-                        .addGap(20, 20, 20)
-                        .addComponent(btnReturnDVD)))
-                .addGap(18, 18, 18)
-                .addComponent(btnSearch)
-                .addContainerGap(56, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -281,113 +366,8 @@ public class ClientMainMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowStateChanged
 
-    private void addCustBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustBtnActionPerformed
-   
-         
-        CustomersMainFrame addRemCust = new CustomersMainFrame(); 
-        addRemCust.setVisible(true);
-        addRemCust.setSize(this.getWidth(), this.getHeight());
-
-        getContentPane().removeAll();
-        add(addRemCust);
-        revalidate();
-        repaint();
-  
-    }//GEN-LAST:event_addCustBtnActionPerformed
-
-    private void btnAddDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDVDActionPerformed
-        
-        DVDMainFrame addRemDVD = new DVDMainFrame(); 
-        addRemDVD.setVisible(true);
-        addRemDVD.setSize(this.getWidth(), this.getHeight());
-
-        getContentPane().removeAll();
-        add(addRemDVD);
-        revalidate();
-        repaint();
-        
-    }//GEN-LAST:event_btnAddDVDActionPerformed
-
-    private void btnReturnDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnDVDActionPerformed
-        
-        ReturnDvd returnDVD = new ReturnDvd(); 
-        returnDVD.setVisible(true);
-        returnDVD.setSize(this.getWidth(), this.getHeight());
-
-        getContentPane().removeAll();
-        add(returnDVD);
-        revalidate();
-        repaint();
-        
-    }//GEN-LAST:event_btnReturnDVDActionPerformed
-
     
     
-    private void btnListCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListCustomersActionPerformed
-       
-        CustomerListFrame listCust = new CustomerListFrame(); 
-        listCust.setVisible(true);
-        listCust.setSize(this.getWidth(), this.getHeight());
-
-        getContentPane().removeAll();
-        add(listCust);
-        revalidate();
-        repaint();
-        
-    }//GEN-LAST:event_btnListCustomersActionPerformed
-
-    private void btnListMoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListMoviesActionPerformed
-        
-        MoviesListFrame listMovies = new MoviesListFrame(); 
-        listMovies.setVisible(true);
-        listMovies.setSize(this.getWidth(), this.getHeight());
-
-        getContentPane().removeAll();
-        add(listMovies);
-        revalidate();
-        repaint();
-        
-    }//GEN-LAST:event_btnListMoviesActionPerformed
-
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        
-         Search searchh = new Search(); 
-        searchh.setVisible(true);
-        searchh.setSize(this.getWidth(), this.getHeight());
-
-        getContentPane().removeAll();
-        add(searchh);
-        revalidate();
-        repaint();
-        
-        
-    }//GEN-LAST:event_btnSearchActionPerformed
-
-    private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
-        
-        Reports reports = new Reports(); 
-        reports.setVisible(true);
-        reports.setSize(this.getWidth(), this.getHeight());
-
-        getContentPane().removeAll();
-        add(reports);
-        revalidate();
-        repaint();
-    }//GEN-LAST:event_btnReportsActionPerformed
-
-    private void btnRentDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentDVDActionPerformed
-        
-        DVDRentFrame rentDVD = new DVDRentFrame(); 
-        rentDVD.setVisible(true);
-        rentDVD.setSize(this.getWidth(), this.getHeight());
-
-        getContentPane().removeAll();
-        add(rentDVD);
-        revalidate();
-        repaint();
-        
-    }//GEN-LAST:event_btnRentDVDActionPerformed
-
     private void menuMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMenuActionPerformed
 
         ClientMainMenu clientMenu = new ClientMainMenu();
@@ -401,6 +381,109 @@ public class ClientMainMenu extends javax.swing.JFrame {
         System.exit(0);
         
     }//GEN-LAST:event_menuExitActionPerformed
+
+    private void btnRentDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentDVDActionPerformed
+
+        DVDRentFrame rentDVD = new DVDRentFrame();
+        rentDVD.setVisible(true);
+        rentDVD.setSize(this.getWidth(), this.getHeight());
+
+        getContentPane().removeAll();
+        add(rentDVD);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_btnRentDVDActionPerformed
+
+    private void btnReturnDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnDVDActionPerformed
+
+        ReturnDvd returnDVD = new ReturnDvd();
+        returnDVD.setVisible(true);
+        returnDVD.setSize(this.getWidth(), this.getHeight());
+
+        getContentPane().removeAll();
+        add(returnDVD);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_btnReturnDVDActionPerformed
+
+    private void btnAddDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDVDActionPerformed
+
+        DVDMainFrame addRemDVD = new DVDMainFrame();
+        addRemDVD.setVisible(true);
+        addRemDVD.setSize(this.getWidth(), this.getHeight());
+
+        getContentPane().removeAll();
+        add(addRemDVD);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_btnAddDVDActionPerformed
+
+    private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
+
+        Reports reports = new Reports();
+        reports.setVisible(true);
+        reports.setSize(this.getWidth(), this.getHeight());
+
+        getContentPane().removeAll();
+        add(reports);
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_btnReportsActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+
+        Search searchh = new Search();
+        searchh.setVisible(true);
+        searchh.setSize(this.getWidth(), this.getHeight());
+
+        getContentPane().removeAll();
+        add(searchh);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnListMoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListMoviesActionPerformed
+
+        MoviesListFrame listMovies = new MoviesListFrame();
+        listMovies.setVisible(true);
+        listMovies.setSize(this.getWidth(), this.getHeight());
+
+        getContentPane().removeAll();
+        add(listMovies);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_btnListMoviesActionPerformed
+
+    private void btnListCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListCustomersActionPerformed
+
+        CustomerListFrame listCust = new CustomerListFrame();
+        listCust.setVisible(true);
+        listCust.setSize(this.getWidth(), this.getHeight());
+
+        getContentPane().removeAll();
+        add(listCust);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_btnListCustomersActionPerformed
+
+    private void addCustBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustBtnActionPerformed
+
+        CustomersMainFrame addRemCust = new CustomersMainFrame();
+        addRemCust.setVisible(true);
+        addRemCust.setSize(this.getWidth(), this.getHeight());
+
+        getContentPane().removeAll();
+        add(addRemCust);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_addCustBtnActionPerformed
 
    
     public static void main(String args[]) {
@@ -466,7 +549,11 @@ public class ClientMainMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnReturnDVD;
     private javax.swing.JButton btnSearch;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JMenu menu;
     private javax.swing.JMenuItem menuExit;
     private javax.swing.JMenuItem menuMenu;
