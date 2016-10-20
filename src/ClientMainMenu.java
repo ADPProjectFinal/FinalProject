@@ -370,8 +370,6 @@ public class ClientMainMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowStateChanged
 
-    
-    
     private void menuMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMenuActionPerformed
 
         ClientMainMenu clientMenu = new ClientMainMenu();
@@ -487,46 +485,62 @@ public class ClientMainMenu extends javax.swing.JFrame {
        
         
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) 
+            {
+                if ("Nimbus".equals(info.getName())) 
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } 
+        catch (ClassNotFoundException ex) 
+        {
             java.util.logging.Logger.getLogger(ClientMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } 
+        catch (InstantiationException ex) 
+        {
             java.util.logging.Logger.getLogger(ClientMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } 
+        catch (IllegalAccessException ex) 
+        {
             java.util.logging.Logger.getLogger(ClientMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } 
+        catch (javax.swing.UnsupportedLookAndFeelException ex) 
+        {
             java.util.logging.Logger.getLogger(ClientMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        
-       
-        
-        //creates new Server thread
+
         (new Thread(new Server())).start();
-        //Aleeps the main tread for 1 second to get the server running
-         try{
-        Thread.sleep(1000);
-        }catch(InterruptedException e){
-        e.printStackTrace();
-        }
-       //connect to server and open streams
-        try{
+
+         
+        try
+         {
+            Thread.sleep(1000);
+         }
+         catch(InterruptedException e)
+         {
+            e.printStackTrace();
+         }
+
+        
+        try
+        {
         socket = new Socket("localhost", 30000); 
         out = new ObjectOutputStream(socket.getOutputStream()); 
         out.flush();
         in = new ObjectInputStream(socket.getInputStream()); 
         
-        }catch(IOException e){
+        }
+        catch(IOException e)
+        {
             e.printStackTrace();
         }
         
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
                 new ClientMainMenu().setVisible(true);
             }
         });
@@ -561,106 +575,145 @@ public class ClientMainMenu extends javax.swing.JFrame {
     private ArrayList<DVD> available; 
     Customer customer; 
 
-    //Requests all customers in database in an arraylist format
-    public ArrayList customerTable(){
+    public ArrayList customerTable()
+    {
     customerList = new ArrayList<Customer>();
-     try{
-    out.writeObject("tableC");
-    out.flush();
-    customerList = (ArrayList) in.readObject(); 
-    }catch(IOException e){
-    e.printStackTrace();
-    }catch(ClassNotFoundException e){
-    e.printStackTrace();
+     
+    try
+     {
+        out.writeObject("tableC");
+        out.flush();
+        customerList = (ArrayList) in.readObject(); 
+     }
+    catch(IOException e)
+    {
+        e.printStackTrace();
     }
-   return customerList; 
-}
+    catch(ClassNotFoundException e)
+    {
+        e.printStackTrace();
+    }
     
-    //requests all DVD's in the database
-    public ArrayList dvdTable(){
+    return customerList; 
+}
+
+    public ArrayList dvdTable()
+    {
+        
     dvdList = new ArrayList<DVD>();
-    try{
-    out.writeObject("dvdTab");
-    out.flush();
-    dvdList = (ArrayList) in.readObject(); 
-    }catch(IOException e){
-    e.printStackTrace();
-    }catch(ClassNotFoundException e){
-    e.printStackTrace();
+    
+    try
+    {
+        out.writeObject("dvdTab");
+        out.flush();
+        dvdList = (ArrayList) in.readObject(); 
+    }
+    
+    catch(IOException e)
+    {
+        e.printStackTrace();
+    }
+    catch(ClassNotFoundException e)
+    {
+        e.printStackTrace();
     }
     
     
     return dvdList; 
     }
     
-    //sends request to server to add new customer 
-    public void addNewCustomer(String name, String surname, String phoneNumber){
+    public void addNewCustomer(String name, String surname, String phoneNumber)
+    {
         
         String message = name+"#"+surname+"#"+phoneNumber; 
         
         String command = "addNew";
-        try{
+        
+        try
+        {
         out.writeObject(command+message);
         out.flush();
         String reply = (String)in.readObject();
         JOptionPane.showMessageDialog(null, reply);
-        }catch(IOException e){
-        e.printStackTrace();
-        }catch(ClassNotFoundException e){
+        }
+        
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        catch(ClassNotFoundException e)
+        {
             e.printStackTrace();
         }
       
-} 
-    //sends request to server to add new dvd
-    public void addNewDvd(String title, String cat, String year){
+    } 
+
+    public void addNewDvd(String title, String cat, String year)
+    {
     
         String message = title+"#"+cat+"#"+year; 
         String command = "addDvd"; 
         
-         try{
-        out.writeObject(command+message);
-        out.flush();
-        }catch(IOException e){
-        e.printStackTrace();
-        }
-         try{
-        String reply = (String) in.readObject(); 
-        JOptionPane.showMessageDialog(null, reply);
-         }catch(IOException e){
-         }catch(ClassNotFoundException e){
-         
+         try
+         {
+            out.writeObject(command+message);
+            out.flush();
          }
-        
+         catch(IOException e)
+         {
+            e.printStackTrace();
+         }
+         
+         try
+         {
+            String reply = (String) in.readObject(); 
+            JOptionPane.showMessageDialog(null, reply);
+         }
+         catch(IOException e)
+         {
+         }
+         catch(ClassNotFoundException e){
+         
+         } 
     }
     
-    //sends request to server to remove customer
-    public void removeCustomer(int i){
-    try{
-        
-        String number = Integer.toString(i); 
-        String command = "remove"; 
-        out.writeObject(command+number);
-        out.flush();
-    }catch(IOException e){
-    e.printStackTrace();
-    }
-    }
+
+    public void removeCustomer(int i)
+    {
     
-    //sends request to server to remove dvd
-    public void removeDvd(int i){
+        try
+        {
+        
+            String number = Integer.toString(i); 
+            String command = "remove"; 
+            out.writeObject(command+number);
+            out.flush();
+        }
+        
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeDvd(int i)
+    {
     
         String command = "remDvd"; 
         String number = Integer.toString(i);
-        try{
-        out.writeObject(command+number);
-        out.flush();
-        }catch(IOException e){
-        e.printStackTrace();
+        
+        try
+        {
+            out.writeObject(command+number);
+            out.flush();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
         }
         
     }
     
-    //sends request to server to rent a dvd
     public void rentDVD(String cusNumber, String dvdNumber){
         
         String message = ""; 
@@ -669,18 +722,24 @@ public class ClientMainMenu extends javax.swing.JFrame {
         
         String rent = cusNumber+"#"+dvdNumber; 
         String command = "rentDv"; 
-        try{
+        
+        try
+        {
         out.writeObject(command+rent);
         message = (String) in.readObject();
         
         String details = message.substring(3); 
         String submessage = message.substring(0, 3);
-        if(submessage.equals("yes")){
+        if(submessage.equals("yes"))
+        {
         JOptionPane.showMessageDialog(null, "Customer has successfully rented the DVD");
-        }else if(submessage.equals("noo")){
+        }
+        else if(submessage.equals("noo"))
+        {
             
              StringTokenizer rentToken = new StringTokenizer(details, "#");
-                        while(rentToken.hasMoreElements()){
+                        while(rentToken.hasMoreElements())
+                        {
                          credit = Double.parseDouble(rentToken.nextToken()); 
                          price = Double.parseDouble(rentToken.nextToken());
                         }
@@ -688,112 +747,141 @@ public class ClientMainMenu extends javax.swing.JFrame {
                         String amountDue = Double.toString(price-credit);
                         
             
-        String[] buttons = { "Pay amount due","Load R100 credits", "Cancel" };
-        int rc = JOptionPane.showOptionDialog(null,"Customer credit: "+credit+"\n Price: "+price+"\n Amount due: "+amountDue , "Insuficient credit",
-        JOptionPane.INFORMATION_MESSAGE, 0, null, buttons, buttons[2]);
-        if(rc == 0){
-        out.writeObject("pay");
-        }else if(rc == 1){
-        out.writeObject("load");
+            String[] buttons = { "Pay amount due","Load R100 credits", "Cancel" };
+            int rc = JOptionPane.showOptionDialog(null,"Customer credit: "+credit+"\n Price: "+price+"\n Amount due: "+amountDue , "Insuficient credit",
+            JOptionPane.INFORMATION_MESSAGE, 0, null, buttons, buttons[2]);
+            
+            if(rc == 0)
+            {
+            out.writeObject("pay");
+            }
+            else if(rc == 1)
+            {
+            out.writeObject("load");
+            }
         }
         }
-        }catch(IOException e){
-        e.printStackTrace();
-        }catch(ClassNotFoundException e){
-        e.printStackTrace();
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        catch(ClassNotFoundException e)
+        {
+            e.printStackTrace();
         }
         
         
     }
-    
-    //sends request to server to retrieve all outstanding rentals
-    public ArrayList rentals(String s){
+
+    public ArrayList rentals(String s)
+    {
     
     rentals = new ArrayList<Rental>();
-     try{
-    out.writeObject("rental"+s);
-    out.flush();
-    rentals = (ArrayList) in.readObject(); 
-    }catch(IOException e){
-    e.printStackTrace();
-    }catch(ClassNotFoundException e){
-    e.printStackTrace();
+     
+    try
+    {
+        out.writeObject("rental"+s);
+        out.flush();
+        rentals = (ArrayList) in.readObject(); 
+    }
+    catch(IOException e)
+    {
+        e.printStackTrace();
+    }
+    catch(ClassNotFoundException e)
+    {
+        e.printStackTrace();
     }
    return rentals; 
 }
    
-    
-    //sends request to server to return a rental 
-    public void returnRentl(String rentalNumber, String cusNum, String dvdNum){
+    public void returnRentl(String rentalNumber, String cusNum, String dvdNum)
+    {
     
         String command = "retRen"; 
         String message = rentalNumber+"#"+cusNum+"#"+dvdNum; 
         
-        try{
-        out.writeObject(command+message);
-        out.flush();
-        String reply = (String)in.readObject();
-        if(reply.equals("complete")){
-         
-        JOptionPane.showMessageDialog(null, "DVD successfully returned");
-        }else{
-        double rentCred = (Double)in.readObject(); 
-        double penalty = (Double)in.readObject(); 
-        
-        //Custom JOptionPane
-        String[] buttons = { "Pay amount due", "Cancel" };
-        int rc = JOptionPane.showOptionDialog(null, reply+"\n Credit amount: "+rentCred+"\n Penalty cost: "+penalty
-        +"\n Amount payable: "+(penalty-rentCred), "Insuficient credit",
-        JOptionPane.INFORMATION_MESSAGE, 0, null, buttons, buttons[1]);
-        System.out.println(rc);
-        
-      if(rc == 0){
-      //pay aamount due
-      out.writeObject("pay");
-      
-      }
-       
+        try
+        {
+            out.writeObject(command+message);
+            out.flush();
+            String reply = (String)in.readObject();
+            if(reply.equals("complete"))
+            {
+                JOptionPane.showMessageDialog(null, "DVD successfully returned");
+            }
+            else
+            {
+            double rentCred = (Double)in.readObject(); 
+            double penalty = (Double)in.readObject(); 
+
+
+            String[] buttons = { "Pay amount due", "Cancel" };
+            
+            int rc = JOptionPane.showOptionDialog(null, reply+"\n Credit amount: "+rentCred+"\n Penalty cost: "+penalty
+            +"\n Amount payable: "+(penalty-rentCred), "Insuficient credit",
+            JOptionPane.INFORMATION_MESSAGE, 0, null, buttons, buttons[1]);
+            
+            System.out.println(rc);
+
+            if(rc == 0)
+            {
+            //pay aamount due
+            out.writeObject("pay");
+            }
+            }
+            
         }
-        }catch(IOException e){
-        e.printStackTrace();
-        }catch(ClassNotFoundException e){
-        e.printStackTrace();
+        catch(IOException e)
+        {
+            e.printStackTrace();
         }
-    
-    
+        catch(ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
     }
-    
-    //sends request to server to retrieve daily rentals
-    public ArrayList getDailyRentals(String date){
+
+    public ArrayList getDailyRentals(String date)
+    {
     
         rentals = new ArrayList<Rental>();
         
         String command = "dayRen"; 
-    try{
-    out.writeObject(command+date);
-    rentals = (ArrayList)in.readObject(); 
-    }catch(IOException e){
-    e.printStackTrace();
-    }catch(ClassNotFoundException e){
-    e.printStackTrace();
-    }
-    return rentals; 
+        
+        try
+        {
+            out.writeObject(command+date);
+            rentals = (ArrayList)in.readObject(); 
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        catch(ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        
+        return rentals; 
     }
     
-    
-   
-//closes all sockets and streams
-public void closeStreams(){
-try{
-in.close();
-out.close();
-socket.close();
-System.exit(0); 
-}catch(IOException e){
-e.printStackTrace();
-}
-}
-
-
-
+    public void closeStreams()
+    {
+        
+        try
+        {
+            
+            in.close();
+            out.close();
+            socket.close();
+            System.exit(0); 
+        
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }

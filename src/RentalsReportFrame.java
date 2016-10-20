@@ -176,7 +176,7 @@ public class RentalsReportFrame extends javax.swing.JPanel {
             bw.write(String.format("%-20s", "Rantal Number") + String.format("%-20s", "Date Rented") + String.format("%-20s", "Date Returned") + String.format("%-20s", "Customer Number") + String.format("%-20s", "DVD Number"));
             bw.newLine();
             
-            bw.write("-------------------------------------------------------------------------------------");
+            bw.write("_________________________________________________________________________");
             bw.newLine();
             
             for(int cnt = 0; cnt<tblDailyRentals.getRowCount(); cnt++)

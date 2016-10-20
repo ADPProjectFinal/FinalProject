@@ -248,32 +248,7 @@ public class DVDMainFrame extends javax.swing.JPanel {
     }//GEN-LAST:event_cbmCatActionPerformed
 
     private void txfSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfSearchKeyReleased
-        
-       /* TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
-      
-       
-        sorter.setRowFilter(RowFilter.regexFilter(txfSearch.getText(), 1));
-        dvdTable.setRowSorter(sorter);
-        
-        //<DefaultTableModel> sorter = new TableRowSorter<>(dvdTable.getModel());
-            dvdTable.setRowSorter(sorter);
-            List<RowSorter.SortKey> sortKeys = new ArrayList<>();
 
-            int columnIndexToSort = 1;
-            sortKeys.add(new RowSorter.SortKey(columnIndexToSort, SortOrder.ASCENDING));
-
-            sorter.setSortKeys(sortKeys);
-            sorter.sort();
-            
-       String query = txfSearch.getText().toLowerCase();
-       
-            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
-       
-            dvdTable.setRowSorter(tr);
-            
-            tr.setRowFilter(RowFilter.regexFilter(query));
-            */
-       
        String query = txfSearch.getText().toLowerCase();
        
        findDvd(query);
@@ -346,7 +321,7 @@ public class DVDMainFrame extends javax.swing.JPanel {
        ClientMainMenu cView = new ClientMainMenu(); 
        ArrayList<DVD> dvdList = new ArrayList<DVD>(cView.dvdTable());
        
-       //sorts the ArrayList in alphabetical order
+
        Collections.sort(dvdList, new Comparator<DVD>()
        {
          @Override
@@ -358,7 +333,7 @@ public class DVDMainFrame extends javax.swing.JPanel {
        
        });
        
-       //populates the table from the arrayList
+
         model = (DefaultTableModel) dvdTable.getModel();
         model.setRowCount(0);
         for(int a = 0; a<dvdList.size(); a++)

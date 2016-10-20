@@ -138,7 +138,8 @@ public class OutstandingReportFrame extends javax.swing.JPanel {
             out.write(String.format("%-20s", "Rantal Number") + String.format("%-20s", "Date Rented") + String.format("%-20s", "Date Returned") + String.format("%-20s", "Customer Number") + String.format("%-20s", "DVD Number"));
             out.newLine();
             
-            out.write("-------------------------------------------------------------------------");
+            out.write("_________________________________________________________________________");
+
             out.newLine();
             
             for(int cnt = 0; cnt<outstandingTable.getRowCount(); cnt++)

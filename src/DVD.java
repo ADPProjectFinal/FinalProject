@@ -1,9 +1,4 @@
-/*
- * Author       :   Christopher Nayman  (205204538)
- *              :   Michelan Arendse    (206023014)
- *              :   Tshepo Mangena      (206041063)
- *              :   Sithembele Siko     (201136899)
- */
+
 import java.io.*;
 public class DVD implements Serializable
 {

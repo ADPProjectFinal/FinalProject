@@ -184,34 +184,40 @@ public class DVDRentFrame extends javax.swing.JPanel {
         
         int dvdRow = DvdRentTable.getSelectedRow();
         int cusRow = CusRentTable.getSelectedRow(); 
-        if(DvdRentTable.getRowSorter()!=null){
-        dvdRow = DvdRentTable.getRowSorter().convertRowIndexToModel(dvdRow); 
-        }else{
-        dvdRow = DvdRentTable.getSelectedRow();
+        if(DvdRentTable.getRowSorter()!=null)
+        {
+            dvdRow = DvdRentTable.getRowSorter().convertRowIndexToModel(dvdRow); 
+        }
+        else
+        {
+            dvdRow = DvdRentTable.getSelectedRow();
         }
         
-        if(cusRow == -1 || dvdRow == -1){
-        JOptionPane.showMessageDialog(null, "Please select a customer and a movie");
-        }else{
-        
-        String cusNumber = CusRentTable.getModel().getValueAt(cusRow, 0).toString(); 
-        String dvdNumber = DvdRentTable.getModel().getValueAt(dvdRow, 0).toString(); 
-        
-        Boolean cusAvailable = Boolean.parseBoolean(CusRentTable.getModel().getValueAt(cusRow, 5).toString()); 
-        Boolean dvdAvailable = Boolean.parseBoolean(DvdRentTable.getModel().getValueAt(dvdRow, 4).toString());
-        
-        JOptionPane.showMessageDialog(null, cusAvailable+" "+dvdAvailable);
-        if(cusAvailable == false ||dvdAvailable == false){
-        JOptionPane.showMessageDialog(null, "Please select a valid customer and movie");
-        }else{
-        view.rentDVD(cusNumber, dvdNumber);
-        cusmodel.setRowCount(0);
-        dvdmodel.setRowCount(0);
-        populateTables(); 
+        if(cusRow == -1 || dvdRow == -1)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a customer and a movie");
         }
+        else
+        {
         
-       
+            String cusNumber = CusRentTable.getModel().getValueAt(cusRow, 0).toString(); 
+            String dvdNumber = DvdRentTable.getModel().getValueAt(dvdRow, 0).toString(); 
         
+            Boolean cusAvailable = Boolean.parseBoolean(CusRentTable.getModel().getValueAt(cusRow, 5).toString()); 
+            Boolean dvdAvailable = Boolean.parseBoolean(DvdRentTable.getModel().getValueAt(dvdRow, 4).toString());
+        
+            JOptionPane.showMessageDialog(null, cusAvailable+" "+dvdAvailable);
+        if(cusAvailable == false ||dvdAvailable == false)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a valid customer and movie");
+        }
+        else
+        {
+            view.rentDVD(cusNumber, dvdNumber);
+            cusmodel.setRowCount(0);
+            dvdmodel.setRowCount(0);
+            populateTables(); 
+        }
         } 
     }//GEN-LAST:event_rentActionPerformed
 
@@ -241,18 +247,22 @@ public class DVDRentFrame extends javax.swing.JPanel {
         customerList = new ArrayList<Customer>(view.customerTable()); 
         cusmodel = (DefaultTableModel) CusRentTable.getModel();
         cusmodel.setRowCount(0);
-        for(int a = 0; a<customerList.size(); a++){
-        cusmodel.addRow(new Object[]{customerList.get(a).getCustNumber(), customerList.get(a).getName(),customerList.get(a).getSurname(), 
-        customerList.get(a).getPhoneNum(), customerList.get(a).getCredit(), customerList.get(a).canRent()});
+        
+        for(int a = 0; a<customerList.size(); a++)
+        {
+            cusmodel.addRow(new Object[]{customerList.get(a).getCustNumber(), customerList.get(a).getName(),customerList.get(a).getSurname(), 
+            customerList.get(a).getPhoneNum(), customerList.get(a).getCredit(), customerList.get(a).canRent()});
         } 
         
          //populate dvd table
         dvdList = new ArrayList<DVD>(view.dvdTable());
         dvdmodel = (DefaultTableModel) DvdRentTable.getModel();
         dvdmodel.setRowCount(0);
-        for(int a = 0; a<dvdList.size(); a++){
-        dvdmodel.addRow(new Object[]{dvdList.get(a).getDvdNumber(), dvdList.get(a).getTitle(), dvdList.get(a).getCategory(), 
-        dvdList.get(a).isNewRelease(), dvdList.get(a).isAvailable()});
+        
+        for(int a = 0; a<dvdList.size(); a++)
+        {
+            dvdmodel.addRow(new Object[]{dvdList.get(a).getDvdNumber(), dvdList.get(a).getTitle(), dvdList.get(a).getCategory(), 
+            dvdList.get(a).isNewRelease(), dvdList.get(a).isAvailable()});
         } 
     }
 }
